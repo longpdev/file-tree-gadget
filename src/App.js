@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <div>
+    <Folder name="Desktop" >
+      <File name="dog.jpeg"></File>
+      <File name="cat.jpeg"></File>
+    </Folder>
+    <Folder name="Application" />
+
+  </div>
+}
+
+const Folder = (props) => {
+  const borderStyle = { border: '2px solid pink' }
+  return <div style={borderStyle}>
+    {props.name}
+    {props.children}
+  </div>
+}
+
+const File = (props) => {
+  return <div>{props.name}</div>
 }
 
 export default App;

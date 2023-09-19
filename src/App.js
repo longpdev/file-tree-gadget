@@ -1,26 +1,39 @@
 import React from 'react';
 
-function App() {
+const App = () => {
   return <div>
-    <Folder name="Desktop" >
-      <File name="dog.jpeg"></File>
+    <Folder name="Desktop">
+      <Folder name="Music">
+        <File name="something.mp4"></File>
+        <File name="let_it_be.mp4"></File>
+
+      </Folder>
       <File name="cat.jpeg"></File>
+      <File name="dog.jpeg"></File>
     </Folder>
-    <Folder name="Application" />
+    <Folder name="Application">
+
+    </Folder>
 
   </div>
 }
 
 const Folder = (props) => {
-  const borderStyle = { border: '2px solid pink' }
-  return <div style={borderStyle}>
+
+  return <div>
     {props.name}
-    {props.children}
-  </div>
+    <div style={{ marginLeft: '17px' }}>
+      {props.children}
+
+    </div>
+
+  </div >
+
 }
 
 const File = (props) => {
   return <div>{props.name}</div>
 }
+
 
 export default App;

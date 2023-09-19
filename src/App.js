@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const App = () => {
   return <div>
@@ -19,14 +19,17 @@ const App = () => {
 }
 
 const Folder = (props) => {
+  const [isOpen, setIsOpen] = useState(true);
+  const { name, children } = props;
 
+  const handleClick = () => {
+    setIsOpen(!isOpen)
+  };
   return <div>
-    {props.name}
+    <span onClick={handleClick}>{name}</span>
     <div style={{ marginLeft: '17px' }}>
-      {props.children}
-
+      {isOpen ? children : null}
     </div>
-
   </div >
 
 }

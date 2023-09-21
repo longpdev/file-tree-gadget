@@ -16,11 +16,16 @@ const App = () => {
 }
 
 const Folder = (props) => {
+  const handleClick = () => {
+    setIsopen(!isOpen);
+  }
+
+  const [isOpen, setIsopen] = useState(false);
   const [name, children] = [props.name, props.children];
   return <div>
-    {name}
+    <span onClick={handleClick}>{name}</span>
     <div style={{ marginLeft: '17px' }}>
-      {children}
+      {isOpen ? children : null}
     </div>
 
   </div >
